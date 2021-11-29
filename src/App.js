@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import HomePage from "./pages/HomePage"
+import ProductPage from "./pages/ProductPage"
+import LoginPage from "./pages/LoginPage";
+import {useState} from 'react'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  let [flag, setFlag] = useState(false)
+  let [user, setUser] = useState(null)
+
+  let [showInsurancePage , setShowInsurance] = useState(false)
+  console.log(flag, showInsurancePage)
+
+  if (!flag){
+    return (
+      <LoginPage setFlag={setFlag} setUser={setUser}/>
+    )
+  }
+  else if (!showInsurancePage && flag) {
+    return(
+      <HomePage user={user} setShowInsurance={setShowInsurance}/>
+    )
+  }
+  else if (showInsurancePage && flag){
+    return(
+      <ProductPage user={user} />
+    )
+  }
 }
 
 export default App;
