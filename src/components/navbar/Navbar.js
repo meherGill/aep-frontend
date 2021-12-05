@@ -74,7 +74,7 @@ let Navbar = ({user ,setShowInsurance, image_url}) => {
                         <li> <a href="#">Contact</a></li>
                         <li> <a href="#">Blog</a></li>
                         <li> <a href="#">Careers</a></li>
-                        <li> <a href="" onClick={(e) => { e.preventDefault(); setShowInsurance(true)} }>Insurance</a> </li>
+                        <li> <a href="" onClick={(e) => { e.preventDefault();  window.digitalData.category='insurance page'; setShowInsurance(true)} }>Insurance</a> </li>
                         <li> <NotificationComponent showAlert={showAlert} alertUser={alertUser} /></li>
                         <li> Hello {user.givenName} {user.lastName}</li>
                     </ul>

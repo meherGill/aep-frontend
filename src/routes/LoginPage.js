@@ -14,6 +14,11 @@ let LoginPage = ({setFlag, setUser}) => {
         e.preventDefault()
         for (let customer of customerList) {
             if ( userName === customer.username && password === customer.password){
+                window.digitalData.user.userInfo.authState='logged in';
+            	window.digitalData.category='home page';
+            	window.digitalData.user.userInfo.age= customer.age;
+            	window.digitalData.user.userInfo.insuranceAge= customer.insuranceAge;
+            	window.digitalData.location.locationCity= customer.locationCity;
                 setFlag(true)
                 setUser(customer)
                 return

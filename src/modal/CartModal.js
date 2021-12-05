@@ -38,7 +38,7 @@ let CartModal = ({list_of_items , user}) => {
         for (let item of list_of_items){
             basePrice += item_prices[item]
         }
-        if (user.location === "VIC"){
+        if (user.locationCity === "melbourne"){
             return basePrice * (100 - discount_int)/100 * 0.8
         }
         return basePrice * (100 - discount_int)/100
