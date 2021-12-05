@@ -6,6 +6,7 @@ let shrek = {
     profile: "active",
     daysLeft: 50,
     secondsLeft: 10,
+    location: "NSW",
 }
 
 let alladin = {
@@ -16,6 +17,7 @@ let alladin = {
     profile: "active",
     daysLeft: 28,
     secondsLeft: 5,
+    location: "VIC",
 }
 let mickey = {
     givenName: "Mickey",
@@ -25,6 +27,7 @@ let mickey = {
     profile: "to retain",
     daysLeft: 10,
     secondsLeft: 10,
+    location: "QLD",
 }
 
 export let calculateRemainingDays = (user) => {

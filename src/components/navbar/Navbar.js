@@ -4,10 +4,11 @@ import { useEffect, useState } from "react"
 import "./Navbar.css"
 import NotificationComponent from "./NotificationComponent"
 
-let Navbar = ({user ,setShowInsurance}) => {
+let Navbar = ({user ,setShowInsurance, image_url}) => {
+    
     
     let [showAlert, setShowAlert] = useState(null)
-
+    let [showImage, setShowImage] = useState(false)
     let checkIfUserNeedsAlert = (user) => {
         let days = calculateRemainingDays(user)
         if (days <= 28) {
@@ -18,7 +19,7 @@ let Navbar = ({user ,setShowInsurance}) => {
 
     let alertUser = () => {
         if (showAlert){
-            alert(`Hello ${user.givenName} , you have less than 28 days left with your insurance. Let us give you some incentives`)
+            setShowImage(true)
         }
     }
     useEffect(() => {
@@ -44,11 +45,22 @@ let Navbar = ({user ,setShowInsurance}) => {
             user.secondsLeft -= 1
         }
     }, 1000);
+
+    const hideImg = () => {
+        if (showImage){
+            setShowImage(false)
+        }
+    }
+    const imageComponent = () => {
+        return (
+            <div className="image_backshadow" onClick={hideImg}>
+                <img className="discountImage" src={image_url} />
+            </div>
+        )
+    }
     return(
         <header onClick={() => console.log(user)}>
             <div className="container">
-
-
                 <a href="#">
                     <img src="https://abdullahuc.github.io/bank-ui/assets/images/logo.svg" alt="" />
                 </a>
@@ -68,6 +80,8 @@ let Navbar = ({user ,setShowInsurance}) => {
                     </ul>
                 </nav>
             </div>
+            {showImage ? imageComponent() : ''}
+            
         </header>
 )
 }
