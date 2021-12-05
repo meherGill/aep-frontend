@@ -62,7 +62,7 @@ let CartModal = ({list_of_items , user}) => {
                         {generateListOfPrices(list_of_items)}
                     </ul>
                 </div>
-                <h3 className="discountApplied">Discount Applied : {discount} {user.location == "VIC" ? " and an additional 20%" : ''}</h3>
+                <h3 className="discountApplied">Discount Applied : {discount} {user.locationCity == "melbourne" ? " and an additional 20%" : ''}</h3>
                 <h3>Final Price : {calculateFinalPrice(discount , list_of_items)}</h3>
                 <button>Purchase</button>
             </div>
